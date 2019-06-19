@@ -1,85 +1,24 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-//Variáveis Globais
+//GLOBAL VARIABLES
 #define max_ascii 256
 int tamanho = 0;
 
+//STRUCTS
+
+//PROTOTYPES
+char[] charArray(); // CRIAÇÃO DE UM VETOR COM OS VALORES INTERNOS DO ARQUIVO
 
 
-//Structs das árvores
-
-/* Struct dos Nodos */
-//typedef struct Node {
-  //  int valor;
-  //  char caractere;
-  //  struct Node* pai;
-  //  struct Node* esq;
-  //  struct Node* dir;
-//}Node;
-
-/*  */
+//FUNCTIONS
+char[] charArray(){
+    /*  VARIAVEIS */
+    int cont_tamanho = 0; //CONTADOR DO TAMANHO DA STRING
+    int contador_vetor = 0; //CONTADOR DO VETOR
 
 
-
-//Prototypes
-int frequencia(char caractere, )
-void inserir(NODO** arv, char val);
-void mostrar(NODO* arv);
-NODO* pesquisar(NODO* arv, char val);
-
-//Functions
-
-
-
-void inserir(NODO** arv, char val){
-    if(*arv == NULL){
-        NODO* novo;
-        novo = malloc(sizeof(NODO));
-        novo->valor = val;
-        novo->pai = NULL;
-        novo->esq = NULL;
-        novo->dir = NULL;
-
-        *arv = novo;
-    }else {
-        if(val < (*arv)->valor){
-            inserir(&((*arv)->esq), val);
-        }else{
-            inserir(&((*arv)->dir),val);
-        }
-    }
-}
-
-NODO* pesquisar(NODO* arv, char val){
-    if(arv == NULL) return NULL;
-
-    if( arv->valor == val){
-        return arv;
-    }else if(arv->valor > val){
-        return pesquisar(arv->esq, val);
-    }else{
-        return pesquisar(arv->dir,val);
-    }
-}
-
-void mostrar(NODO* arv){
-    if(arv == NULL) return;
-
-    mostrar(arv->esq);
-    printf("(%c) ",arv->caractere);
-    mostrar(arv->dir);
-}
-
-
-
-int main(){
-    //chamada do Nodo
-    NODO* raiz = NULL;
-    char salvando_char;
-
-
-    //lendo arquivo texto
+    /* LENDO ARQUIVO TEXTO */
     FILE* file = fopen("../Arquivos_Textos/arquivo.txt", "r");
 
     if(file == NULL){
@@ -87,18 +26,26 @@ int main(){
         exit(EXIT_FAILURE);
     }
 
-    //lendo char por char
+
+    /* NUMERO DE CHARS NO ARQUIVO */
     char caractere;
     while((caractere = fgetc(file)) != EOF){
-       // printf("char: %c\n", caractere);
-       salvando_char = caractere;
-       inserir(&raiz, &salvando_char);
+        cont_tamanho = cont_tamanho+1;
     }
 
-    mostrar(raiz);
-    printf("\n");
+    rewind(file); //retorna ao inicio do arquivo
 
-    //fechando o arquivo
-    fclose(file);
-    return 0;
+    /* VETOR COM OS CHARS DO ARQUIVO */
+    char vetor[cont_tamanho];
+
+    while((caractere = fgetc(file)) != EOF){
+       vetor[contador_vetor] = caractere;
+       contador_vetor = contador_vetor+1;
+    }
+
+    return vetor; //SAIDA DO VETOR
+}
+
+int main(){
+    
 }
