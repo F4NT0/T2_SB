@@ -54,11 +54,10 @@ int main(){
     while((caractere = fgetc(file)) != EOF){
         contador = contador + Verfrequencia(caractere,caracteres,contador); //ele vai verificar a frequencia de cada um dos chars
     }
-
-    for(int i = 0 ; i < sizeof(caracteres)-3 ; i++){ // -3 é para limpar o excesso do arquivo
-        if(caracteres[i].caractere_tupla != ' '){
-            printf("( %c , %d ) \n",caracteres[i].caractere_tupla,caracteres[i].freq);
-        }
+    printf("Tamanho de Caracteres: %d\n", sizeof(caracteres));
+    for(int i = 0 ; i < sizeof(caracteres) ; i++){ // -3 é para limpar o excesso do arquivo
+        printf("Posicao %d\n",i);
+        printf("( %c , %d ) \n",caracteres[i].caractere_tupla,caracteres[i].freq);
     }
 
     fclose(file);
