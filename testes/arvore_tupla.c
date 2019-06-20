@@ -10,7 +10,8 @@ int max_ascii = 256;
 //STRUCTS
 
 typedef struct Nodo{ //Binary Tree Struct
-    Tupla* valor;
+    int valor; //frequencia da letra
+    char caractere; //caractere especifico
     struct Node* pai; //Nodo do pai que vem antes
     struct Node* esq; //Nodo do Filho da Esquerda
     struct Node* dir; //Nodo do Filho da Direita
@@ -28,23 +29,35 @@ typedef struct Nodo NODO;
 
 //PROTÓTIPOS
 
-void inserir(NODO* arvore, Tupla* valor);
-NODO* nodoUnico(Tupla* valor); //serve para criar ABP de um unico Nodo
+void inserir(NODO* arvore, Tupla* tupla);
+NODO* nodoUnico(Tupla* tupla); //serve para criar ABP de um unico Nodo
 void mostrar(NODO* arvore);
 
 
 //FUNCOES
-/**
- * A funcao inserir vai receber um Nodo da arvore e uma Tupla como valor
- * se o Nodo for vazio, ele vai inicializar o Nodo com o valor de entrada
- * se o Nodo existir, ele vai verificar: 
- *    Se o valor de entrada for menor que o valor no sistema, vai para a esquerda
- *    se o valor de entrada for maior que o valor no sistema, vai para a direita 
- **/
-void inserir(NODO* arvore, Tupla* valor){
+
+void inserir(NODO* arvore, Tupla* tupla){
     if(*arvore == NULL){
         
     }
+}
+
+/*
+ * nodoUnico serve para construir as arvores binarias com um unico nodo
+ *
+ *
+*/
+NODO* nodoUnico(Tupla* tupla){
+    NODO* auxiliar = malloc(sizeof(NODO*));//alocado um espaço de memória especial para a arvore
+    
+    //Informacoes dentro da arvore
+    auxiliar->valor=tupla.freq;
+    auxiliar->caractere=tupla.letra;
+    auxiliar->pai=NULL;
+    auxiliar->esq=NULL; 
+    auxiliar->dir=NULL;
+
+    return auxiliar;
 }
 
 

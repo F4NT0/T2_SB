@@ -55,7 +55,7 @@ int main(){
         contador = contador + Verfrequencia(caractere,caracteres,contador); //ele vai verificar a frequencia de cada um dos chars
     }
     printf("Tamanho de Caracteres: %d\n", sizeof(caracteres));
-    for(int i = 0 ; i < sizeof(caracteres) ; i++){ // -3 é para limpar o excesso do arquivo
+    for(int i = 0 ; i < sizeof(caracteres) ; i++){
         printf("Posicao %d\n",i);
         printf("( %c , %d ) \n",caracteres[i].caractere_tupla,caracteres[i].freq);
     }
