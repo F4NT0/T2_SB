@@ -1,4 +1,2 @@
 #!/bin/bash
-
-gcc ../src/main.c -o ../Arquivos_Compilados/run
-./../Arquivos_Compilados/run
+gcc -o main ../src/main.c ../src/frequencia.c ../src/arvore.c ; mv main ../compilados/ ; cd .. ; cd compilados/ ; ./main
