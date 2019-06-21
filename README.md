@@ -50,8 +50,8 @@ Nome do Arquivo|Para que serve|
 
 Nome Arquivo|Status
 |---|---|
-`start.sh` | :white_check_mark:
-`start_linux.sh`|:white_check_mark:
-`main.c`|:white_check_mark:
-`frequencia.c`|:white_check_mark:
-`arvores.c`|:white_check_mark: 
+`start.sh` | :heavy_check_mark:
+`start_linux.sh`|:heavy_check_mark:
+`main.c`|:heavy_check_mark:
+`frequencia.c`|:heavy_check_mark:
+`arvores.c`|:heavy_check_mark: 
