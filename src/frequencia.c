@@ -3,19 +3,23 @@
 #include<string.h>
 #include "frequencia.h"
 
-//GLOBAL VARIABLES
+/*--------------------
+    VARIAVEIS GLOBAIS
+----------------------*/
+
 int max_ascii_frequencia = 256;
 
-// INICIALIZANDO STRUCTS
+/*------------------------
+   INICIALIZACAO  STRUCTS
+--------------------------*/
+
 typedef struct Tupla Tupla;
 
-// FUNCOES
+/*------------
+    FUNCOES
+--------------*/
 
-/*
- -------------
- VERIFICANDO FREQUENCIA
- -------------
-*/
+// VERIFICANDO FREQUENCIA
 int frequencia(char car,Tupla* tup,int contador){
     // VARIAVEIS
     int verificador = 1;
@@ -36,15 +40,11 @@ int frequencia(char car,Tupla* tup,int contador){
     return verificador;
 }
 
-/*
- -------------
- LENDO ARQUIVO
- -------------
-*/
- Tupla* lendoArquivo(char* arquivo){
-     // VARIAVEL
-     int contador = 0; //contador para saber se foi todos os valores
-     Tupla* tupla = malloc(sizeof(Tupla) * (max_ascii_frequencia + 1)); //alocação de memória
+// LENDO ARQUIVO
+Tupla* lendoArquivo(char* arquivo){
+    // VARIAVEL
+    int contador = 0; //contador para saber se foi todos os valores
+    Tupla* tupla = malloc(sizeof(Tupla) * (max_ascii_frequencia + 1)); //alocação de memória
 
     
     // ABRINDO ARQUIVO
@@ -64,5 +64,5 @@ int frequencia(char car,Tupla* tup,int contador){
     fclose(file);
 
     return tupla;
- }
+}
 

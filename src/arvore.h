@@ -21,10 +21,11 @@ typedef struct Nodo{
 
  Nodo* nodoUnico(Tupla tup);
  Nodo** listaNodos(Tupla* tup);
- Nodo** definindoTamanho(Tupla* tup);
+ void definindoTamanho(Tupla* tup);
  void ordenar(Nodo** lista);
  Nodo* determinandoPai(Nodo* primeiro, Nodo* segundo);
  void uniao(Nodo** lista);
+ void mostrar(Nodo* nodo);
 
 
 
