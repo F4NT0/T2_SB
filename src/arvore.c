@@ -40,7 +40,7 @@ void mostrar(Nodo* nodo){
     }
 
     mostrar(nodo->esq);
-    printf("(%c) | ",nodo->caractere);
+    printf("( %c ) | ",nodo->caractere);
     mostrar(nodo->dir);
 }
 
@@ -67,19 +67,21 @@ Nodo** listaNodos(Tupla* tup){
 
 // ORDENANDO A LISTA DE NODOS (AUXILIAR A FUNCAO UNIAO)
 void ordenar(Nodo** lista){
-    //Criando um Nodo auxiliar para salvar um Nodo
-    Nodo* auxiliar = malloc(sizeof(Nodo));
-    auxiliar->esq = NULL;
-    auxiliar->dir = NULL;
-    auxiliar-> caractere = '\0';
-    auxiliar->frequencia = '0';
+    //Pegar um caractere auxiliar
+    char aux = 'v';
+    //Pegar uma frequencia auxiliar
+    int freqAux = 0;
+
 
     for(int i = 0 ; i < tamanhoNodos ; i++){
-        for(int j = 0 ; i < tamanhoNodos - 1 ; j++){
+        for(int j = 0 ; j < tamanhoNodos - i - 1 ; j++){
             if(lista[j]->frequencia > lista[j+1]->frequencia){
-                auxiliar = lista[j];
-                lista[j] = lista[j+1];
-                lista[j + 1] = auxiliar;
+                aux = lista[j]->caractere;
+                freqAux = lista[j]->frequencia;
+                lista[j]->caractere = lista[j+1]->caractere;
+                lista[j]->frequencia = lista[j+1]->frequencia;
+                lista[j+1]->caractere = aux;
+                lista[j+1]->frequencia= freqAux;
             }
         }
     }
@@ -99,8 +101,8 @@ Nodo* determinandoPai(Nodo* primeiro, Nodo* segundo){
     Nodo* pai = malloc(sizeof(Nodo*));
 
     pai->frequencia = (primeiro->frequencia + segundo->frequencia);
-    char caractere = pai->frequencia+'0'; //char do valor decimal
-    pai->caractere = caractere;
+    char valor = pai->frequencia+'0';
+    pai->caractere = valor;
     pai->esq = primeiro;
     pai->dir = segundo;
 
@@ -110,7 +112,7 @@ Nodo* determinandoPai(Nodo* primeiro, Nodo* segundo){
 // UNINDO TODOS OS NODOS EM UMA UNICA ARVORE
 void uniao(Nodo** lista){
     while(tamanhoNodos > 1){
-        //ordenar(lista);
+        ordenar(lista);
         Nodo* primeiro = lista[0];
         Nodo* segundo = lista[1];
         Nodo* pai = determinandoPai(primeiro,segundo);

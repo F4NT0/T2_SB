@@ -1,6 +1,8 @@
 #ifndef FREQUENCIA_H
 #define FREQUENCIA_H
 
+// ARQUIVO COM OS STRUCTS E PROTOTIPOS DAS TUPLAS
+
 /*-----------------
  * STRUCT DA TUPLA
 -----------------*/

@@ -1,6 +1,10 @@
 #ifndef ARVORE_H
 #define ARVORE_H
 
+// ARQUIVO COM OS STRUCTS E PROTOTIPOS DAS ARVORES
+
+
+
 /*-----------------
   STRUCT DO NODO
 -----------------*/
