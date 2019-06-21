@@ -1,5 +1,9 @@
 # Relatório do Programa Strange Compressor
 
+**AUTOR:** GABRIEL FANTO STUNDNER 
+**DATA:** 29/06/2019
+**CADEIRA**: SOFTWARE BÁSICO
+
 ## IDÉIA
 
 A idéia do Programa é fazer:
